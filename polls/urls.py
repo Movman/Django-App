@@ -5,6 +5,7 @@ from . import views
 app_name = 'polls'
 urlpatterns = [
     # ex: /polls/
+    # as_view() - preddefinovana funkcia?
     path('', views.IndexView.as_view(), name='index'),
     # ex: /polls/5/
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
