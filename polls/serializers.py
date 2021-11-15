@@ -13,3 +13,10 @@ class ChoiceSerializer(serializers.ModelSerializer):
         model = Choice
         fields = ['question', 'choice_text', 'votes']
 
+
+class PollsDetailSerializer(serializers.ModelSerializer):
+    choices = ChoiceSerializer(many = True)
+    
+    class Meta:
+        model = Question
+        fields = ['question', 'choice_text', 'choices']
