@@ -1,13 +1,10 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
-from .serializers import PollsSerializer, ChoiceSerializer
 from .models import Question, Choice
 
 # Create your views here.
@@ -48,18 +45,3 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
-
-# Making my own view ---Practice---
-
-@api_view(['GET'])
-def pollsList(request):
-    question = Question.objects.all()
-    serializer = PollsSerializer(question, many=True)
-    return Response(serializer.data)
-
-
-@api_view(['GET'])
-def pollsDetail(request, pk):
-    choice = Choice.objects.all()
-    serializer = ChoiceSerializer(choice, many=True)
-    return Response(serializer.data)
