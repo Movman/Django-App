@@ -1,24 +1,17 @@
-from rest_framework.decorators import api_view
-from .serializers import PollsSerializer, ChoiceSerializer, PollsDetailSerializer
+from .serializers import PollsSerializer, PollsDetailSerializer
 from rest_framework.response import Response
+from rest_framework import generics
 
-from .models import Question, Choice
+from .models import Question
 
 # API views
 # Making my own view ---Practice---
 
-@api_view(['GET'])
-def pollsList(request):
-    question = Question.objects.all()
-    serializer = PollsSerializer(question, many=True)
-    
-    return Response(serializer.data)
+class PollsList(generics.ListAPIView):
+        queryset = Question.objects.all()
+        serializer_class = PollsSerializer
 
 
-@api_view(['GET'])
-def pollsDetail(request, pk):
-    poll = Question.objects.get(id=pk)
-    # serializer = ChoiceSerializer(choice, many=True)
-    serializer = PollsDetailSerializer(poll)
-
-    return Response(serializer.data)
+class PollsDetail(generics.RetrieveUpdateDestroyAPIView):
+        queryset = Question.objects.all()
+        serializer_class = PollsDetailSerializer
