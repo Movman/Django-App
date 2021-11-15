@@ -18,7 +18,6 @@ def pollsList(request):
 @api_view(['GET'])
 def pollsDetail(request, pk):
     poll = Question.objects.get(id=pk)
-    choice = Choice.objects.all()
     # serializer = ChoiceSerializer(choice, many=True)
     serializer = PollsDetailSerializer(poll)
 
