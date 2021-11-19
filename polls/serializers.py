@@ -11,7 +11,7 @@ class PollsSerializer(serializers.ModelSerializer):
 class ChoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Choice
-        fields = ['id', 'choice_text','question', 'votes']
+        fields = ['id', 'choice_text', 'question', 'votes']
 
 
 class PollsDetailSerializer(serializers.ModelSerializer):
