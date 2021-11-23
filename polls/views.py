@@ -30,8 +30,8 @@ class ResultsView(generic.DetailView):
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
-        # co reprezentuje choice_set ?
-        selected_choice = question.choice_set.get(pk=request.POST['choice'])
+        # co reprezentuje choices - zoznam odpovedi na otazku
+        selected_choice = question.choices.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'polls/detail.html', {
