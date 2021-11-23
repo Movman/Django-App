@@ -2,6 +2,7 @@ from .serializers import PollsSerializer, PollsDetailSerializer, ChoiceSerialize
 from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework.decorators import api_view
+from django.shortcuts import get_object_or_404
 
 from .models import Choice, Question
 
@@ -20,8 +21,8 @@ class PollsDetail(generics.RetrieveAPIView):
 
 @api_view(['POST'])
 def voteView(request, pk):
-    votes = Choice.objects.get(id = pk)
-    serializer = ChoiceSerializer(instance=votes, data=request.data)
+    question = get_object_or_404(Question, pk=pk)
+    serializer = PollsDetailSerializer(question, data=request.data)
 
     if serializer.is_valid():
         serializer.save()
