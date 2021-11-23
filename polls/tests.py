@@ -38,6 +38,13 @@ def create_question(question_text, days):
     time = timezone.now() + datetime.timedelta(days=days)
     return Question.objects.create(question_text=question_text, pub_date=time)
 
+def create_question_with_choices(question_text, choice_text_1, choice_text_2):
+    question = create_question(question_text, -1)
+    Choice.objects.create(question=question, choice_text=choice_text_1)
+    Choice.objects.create(question=question, choice_text=choice_text_2)
+    return question
+
+
 
 class QuestionIndexViewTests(TestCase):
 
@@ -115,6 +122,48 @@ class QuestionDetailViewTests(TestCase):
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
 
+    def test_question_with_choices(self):
+        """
+        Otestujem ci na detaile Question sa mi zobrazia Choices.
+        """
+        # SETUP
+        question = create_question(question_text='Past Question.', days=-5)
+        Choice.objects.create(question=question, choice_text='Dobre')
+        Choice.objects.create(question=question, choice_text='Zle')
+        self.assertEqual(question.choices.count(), 2)
+
+        # ACTION
+        # idem na detail question
+        url = reverse('polls:detail', args=(question.id,))
+        response = self.client.get(url)
+        # pozriem ci je tam text otazky
+        self.assertContains(response, question.question_text)
+        # pozriem ci mam aj odpovede (choices)
+        # import pdb;pdb.set_trace() # "zastavi beh pythonu" - pouzi `c` pre continue
+        self.assertContains(response, 'Dobre')
+        self.assertContains(response, 'Zle')
+
+
+class QuestionVoteViewTests(TestCase):
+    # dorobit ;)
+    def test_can_vote(self):
+        # setup
+        question = create_question_with_choices('Aky je den?', 'Piatok', 'Pondelok')
+        choice = question.choices.first()
+        self.assertEqual(question.choices.count(), 2)
+        self.assertEqual(choice.votes, 0)
+
+        # akcia
+        url = reverse('polls:vote', args=(question.id,))
+        self.assertEqual(url, '/polls/1/vote/')
+        response = self.client.post(url, {'choice': choice.id})
+        self.assertEqual(response.status_code, 302)
+
+        # TEST
+        choice.refresh_from_db()
+        self.assertEqual(choice.votes, 1)
+
+
 
 class PollsTestCase(APITestCase):
     def test_non_exist_polls_list(self):
@@ -126,14 +175,14 @@ class PollsTestCase(APITestCase):
         self.assertEqual(response.data, [])
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_can_create_poll(self):
-        # Setup - create object in DB
-        data = Question.objects.create({'question_text': 'test'})
-        # Action
-        response = self.client.post("/api/polls/", data)
-        # Test
-        self.assertEqual(response.data == data)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+    # def test_can_create_poll(self):
+    #     # Setup - create object in DB
+    #     data = Question.objects.create({'question_text': 'test'})
+    #     # Action
+    #     response = self.client.post("/api/polls/", data)
+    #     # Test
+    #     self.assertEqual(response.data == data)
+    #     self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
 
     def test_non_exist_polls_vote(self):
@@ -141,8 +190,8 @@ class PollsTestCase(APITestCase):
         response = self.client.get("api/polls/votes/1/")
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
-    def test_can_vote_poll(self):
-        question = Question.objects.create({'question_text': 'test'})
-        choice = Choice.objects.create(question, {'choice_text': 'test'})
-        response = self.client.post("api/polls/votes/", choice)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+    # def test_can_vote_poll(self):
+    #     question = Question.objects.create({'question_text': 'test'})
+    #     choice = Choice.objects.create(question, {'choice_text': 'test'})
+    #     response = self.client.post("api/polls/votes/", choice)
+    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
