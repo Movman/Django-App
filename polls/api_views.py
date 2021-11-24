@@ -22,9 +22,16 @@ class PollsDetail(generics.RetrieveAPIView):
 @api_view(['POST'])
 def voteView(request, pk):
     question = get_object_or_404(Question, pk=pk)
-    serializer = PollsDetailSerializer(question, data=request.data)
 
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
+    # zoberiem z request ID odpovede, najdem ju a "zahlasujem" -> votes + 1
+    try:
+        selected_choice = question.choices.get(pk=request.POST['choice'])
+        selected_choice.votes += 1
+        selected_choice.save()
+    except (Choice.DoesNotExist): 
+        return Response({"message": "Nenasiel som Odpoved"}, status=400)
+    except (KeyError):
+        return Response({"message": "Neposlal si choice ;)"}, status=400)
+    else:
+        # vratim "updatnuty" cely question
+        return Response(PollsDetailSerializer(question).data)
