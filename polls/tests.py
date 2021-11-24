@@ -234,4 +234,8 @@ class PollsTestCase(APITestCase):
         response = self.client.post(url)
 
         # TEST :)
+<<<<<<< HEAD
         self.assertEqual(response.status_code, 400)
+=======
+        self.assertEqual(response.status_code, 400)
+>>>>>>> 2fa98347a2e14f1072bde15f81f2b11d22ceb024
