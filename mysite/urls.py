@@ -23,12 +23,18 @@ from wagtail.documents import urls as wagtaildocs_urls
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+# /kontakt
+# /admin
+# /polls
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('api/polls/', include('polls.api_urls')),
     # wagtail urls
-    path('cms/', include(wagtailadmin_urls)),
-    path('documents/', include(wagtaildocs_urls)),
-    path('pages/', include(wagtail_urls)),
+    path('admin/', include(wagtailadmin_urls)),
+    # path('documents/', include(wagtaildocs_urls)),
+    # default na konci
+    path('', include(wagtail_urls)),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
