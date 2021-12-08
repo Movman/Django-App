@@ -1,0 +1,9 @@
+{% load wagtailuserbar %}
+<body>
+  <a id="#content">Skip to content</a>
+  {% wagtailuserbar %} {# This is a good place for the userbar #}
+  <nav>Navigacia</nav>
+  <main id="content">
+    {% block content %} Toto bude prepisane v "podsablone" {% endblock content %}
+  </main>
+</body>

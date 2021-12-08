@@ -58,6 +58,8 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
+
+    'pages.apps.PagesConfig'
 ]
 
 MIDDLEWARE = [
