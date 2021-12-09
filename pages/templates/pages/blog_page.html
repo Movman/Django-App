@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
     {{ page.title }}
     {{ page.body|richtext }}
+
+    <a href="{% pageurl page.get_parent %}">Back to homepage</a>
+
 {% endblock %}
