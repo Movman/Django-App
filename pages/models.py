@@ -8,6 +8,10 @@ from wagtail.search import index
 
 # Create your models here.
 
+class IndexPage(Page):
+    body = RichTextField()
+
+
 
 class BlogPage(Page):
     body = RichTextField()
@@ -17,7 +21,3 @@ class BlogPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full")
     ]
-
-    search_fields = Page.search_fields + [
-        index.SearchField('body')
-]
