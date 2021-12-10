@@ -1,8 +1,14 @@
-{% extends "base.html" %}
+{% comment %} {% extends "base.html" %} {% endcomment %}
 
+{% load static %}
+{% load wagtailcore_tags %}
 {% block content %}
 
     {{ page.title }}
     {{ page.body|richtext }}
-    
+
+    {% for page in self.get_children %}
+        <a href=>{{ page.title }}</a>
+    {% endfor %}
+
 {% endblock %}
