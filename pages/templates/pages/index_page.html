@@ -7,8 +7,10 @@
     {{ page.title }}
     {{ page.body|richtext }}
 
-    {% for page in self.get_children %}
-        <a href=>{{ page.title }}</a>
-    {% endfor %}
+    <ul>
+        {% for page in self.get_children %}
+            <li><a href=>{{ page.title }}</a></li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}
