@@ -12,12 +12,11 @@ from wagtail.images.blocks import ImageChooserBlock
 # Create your models here.
 
 class IndexPage(Page):
-    body = RichTextField()
+    body = RichTextField(default=None)
 
     content_panels = Page.content_panels + [
-        FieldPanel('body', classname="full")
+        FieldPanel('body')
     ]
-
 
 
 class BlogPage(Page):
@@ -40,8 +39,4 @@ class BlogPage(Page):
     ]
 
 class ContactPage(Page):
-    message = RichTextField()
-
-    content_panels = Page.content_panels + [
-        FieldPanel("message")
-    ]
+    pass

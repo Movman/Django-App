@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -25,6 +26,7 @@
 {% endblock masthead %}
 
 {% block content %}
+
     {{ page.title }}
     {{ page.body|richtext }}
 
