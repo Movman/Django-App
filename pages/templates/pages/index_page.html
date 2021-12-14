@@ -19,11 +19,11 @@
         <!-- Portfolio Grid Items-->
         <div class="row justify-content-center">
             <!-- Portfolio Item 1-->
-            {% for page in self.get_children %}
+            {% for page in self.get_children.specific %}
                 <div class="col-md-6 col-lg-4 mb-5">
                     <div class="portfolio-item mx-auto">
                         <a href="{% pageurl page %}">
-                            <img class="img-fluid" src={% static "assets/img/portfolio/cabin.png" %} alt="..." />
+                            {% image page.main_image width-400 %}
                         </a>
                     </div>
                 </div>

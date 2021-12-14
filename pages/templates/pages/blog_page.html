@@ -28,7 +28,8 @@
 {% block content %}
 
     {{ page.title }}
-    {{ page.body|richtext }}
+    {{ page.text }}
+    {{ page.image }}
 
     <a href="{% pageurl page.get_parent %}">Back to homepage</a>
 

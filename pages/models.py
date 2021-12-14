@@ -1,7 +1,7 @@
 from django.db import models
-from django.db.models.fields.files import ImageField
 
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.images.edit_handlers import ImageChooserPanel
 
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField, StreamField
@@ -20,9 +20,13 @@ class IndexPage(Page):
 
 
 class BlogPage(Page):
-    image = ImageField(blank=True, default=None)
-    author = models.CharField(max_length=200, default=None)
-    date = models.DateField("Post date", default=None)
+    main_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
     text = StreamField([
         ('heading', blocks.CharBlock(form_classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
@@ -32,9 +36,7 @@ class BlogPage(Page):
     # Editor panels configuration
 
     content_panels = Page.content_panels + [
-        FieldPanel('image'),
-        FieldPanel('author'),
-        FieldPanel('date'),
+        ImageChooserPanel('main_image'),
         StreamFieldPanel('text'),
     ]
 
