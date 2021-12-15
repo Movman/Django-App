@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.fields import TextField
+from wagtail.search import index
 
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
@@ -33,6 +35,10 @@ class BlogPage(Page):
         ('image', ImageChooserBlock()),
     ], default=None)
 
+    search_fields = Page.search_fields + [
+        index.SearchField('title'),
+    ]
+
     # Editor panels configuration
 
     content_panels = Page.content_panels + [
@@ -42,3 +48,11 @@ class BlogPage(Page):
 
 class ContactPage(Page):
     pass
+
+
+class Contact(models.Model):
+    email = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self):
+        return self.email
