@@ -35,16 +35,17 @@ class BlogPage(Page):
         ('image', ImageChooserBlock()),
     ], default=None)
 
-    search_fields = Page.search_fields + [
-        index.SearchField('title'),
-    ]
-
     # Editor panels configuration
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('main_image'),
         StreamFieldPanel('text'),
     ]
+
+    search_fields = Page.search_fields + [
+    index.SearchField('title'),
+]
+
 
 class ContactPage(Page):
     pass
