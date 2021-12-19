@@ -22,6 +22,7 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from django.conf import settings
 from django.conf.urls.static import static
+from pages.views import search
 
 
 # /kontakt
@@ -36,5 +37,6 @@ urlpatterns = [
     path('admin/', include(wagtailadmin_urls)),
     # path('documents/', include(wagtaildocs_urls)),
     # default na konci
+    path('search/', search, name='search'),
     path('', include(wagtail_urls)),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
