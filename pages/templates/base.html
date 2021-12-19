@@ -1,6 +1,7 @@
 {% load static %}
 {% load wagtailcore_tags %}
 {% load wagtailuserbar %}
+{% load wagtailimages_tags %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -30,10 +31,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                      {% block search_input %}
-                        <input type="text" class="form-control search-query" name="q" placeholder="Search&hellip;" title="Search for:" />
-                        <input type="submit" class="btn btn-secondary" value="Search" />
-                      {% endblock search_input %}
+                            <form action="{% url 'search' %}" method="get">
+                                <input type="text" class="form-control" name="query" value="{{ search_query }}">
+                                <input type="submit" class="btn btn-secondary" value="Search">
+                            </form>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Index</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/contact-page/">Contact</a></li>
                     </ul>
@@ -44,8 +45,8 @@
         {% block masthead %}
         {% endblock masthead %}
         <!-- Portfolio Section-->
-            {% block content %}
-            {% endblock content %}
+        {% block content %}
+        {% endblock content %}
         <!-- About Section-->
         {% block about %}
         {% endblock about %}
