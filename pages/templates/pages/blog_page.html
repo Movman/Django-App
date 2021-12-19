@@ -4,25 +4,30 @@
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 
-
 {% block masthead %}
-<header class="masthead bg-primary text-white text-center">
-    <div class="container d-flex align-items-center flex-column">
-        <!-- Masthead Avatar Image-->
-        {% image page.main_image fill-400x200 %}
-        <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">{{ page.title }}</h1>
-        <!-- Icon Divider-->
-        <div class="divider-custom divider-light">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Avatar Image-->
+            {% image page.main_image fill-1200x600 %}
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">{{ page.title }}</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
         </div>
-        <h3>Author: {{ page.owner }}</h3>
-        <p> {{ page.last_published_at }} </p>
-        <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">{{ page.text }}</p>
-    </div>
-</header>
-
+    </header>
 {% endblock masthead %}
+
+
+{% block content %}
+
+    <h3>Author: {{ page.owner }}</h3>
+    <p> {{ page.last_published_at }} </p>
+    <p class="masthead-subheading font-weight-light mb-0">{{ page.text }}</p>
+
+
+{% endblock content %}
