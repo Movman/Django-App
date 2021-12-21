@@ -24,8 +24,8 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                {% csrf_token %}
                 <form action="{% url 'contact' %}" method="post" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    {% csrf_token %}
                     <!-- Name input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
