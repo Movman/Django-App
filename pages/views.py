@@ -1,11 +1,12 @@
-from django.shortcuts import render, redirect
-from wagtail.search.models import Query
-from wagtail.core.models import Page
-from pages.models import Contact
-from django.http import HttpResponse
-from django.views.generic.edit import FormView
-
 from django.core.mail import send_mail
+from django.http import HttpResponse
+from django.shortcuts import redirect, render
+from django.views.generic.edit import FormView
+from wagtail.core.models import Page
+from wagtail.search.models import Query
+
+from .forms import Contact
+
 # Create your views here.
 
 def search(request):
@@ -29,9 +30,10 @@ def search(request):
 class ContactFormView(FormView):
     template_name = 'pages/contact.html'
     form_class = Contact
+    success_url = '/contact/'
 
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
-        form.send_email()
+        print(form.cleaned_data)
         return super().form_valid(form)
