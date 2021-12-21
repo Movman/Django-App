@@ -47,11 +47,3 @@ class BlogPage(Page):
         index.SearchField('title'),
 ]
 
-
-
-class Contact(forms.Form):
-    email = forms.EmailField()
-    message = forms.CharField(widget=forms.Textarea)
-
-    def send_email(self):
-        pass
