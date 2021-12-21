@@ -3,7 +3,7 @@
 {% load static %}
 {% load wagtailcore_tags %}
 
-{% block contact %}
+{% block content %}
 <section class="page-section" id="contact">
     <div class="container">
         <!-- Contact Section Heading-->
@@ -17,6 +17,11 @@
         <!-- Contact Section Form-->
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-7">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Send">
+                </form>
                 <!-- * * * * * * * * * * * * * * *-->
                 <!-- * * SB Forms Contact Form * *-->
                 <!-- * * * * * * * * * * * * * * *-->
@@ -24,7 +29,7 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form action="{% url 'contact' %}" method="post" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                {% comment %} <form action="{% url 'contact' %}" method="post" id="contactForm" data-sb-form-api-token="API_TOKEN">
                     {% csrf_token %}
                     <!-- Name input-->
                     <div class="form-floating mb-3">
@@ -70,12 +75,10 @@
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     <!-- Submit Button-->
                     <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
-                </form>
+                </form> {% endcomment %}
             </div>
         </div>
     </div>
 </section>
 
-<a href="{% pageurl page.get_parent %}">Back to homepage</a>
-
-{% endblock contact %}
+{% endblock content %}
