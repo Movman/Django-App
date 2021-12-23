@@ -39,5 +39,13 @@ class ContactFormView(FormView):
     #     return super().form_valid(form)
     
     def post(self, request):
-        messages.success(request, 'Message successfuly sent!')
-        return render(request, 'pages/contact.html')
+        if request.method == 'POST':
+            form = ContactForm(request.POST)
+
+            if form.is_valid():
+                messages.success(request, 'Message successfuly sent!')
+            else:
+                messages.error(request, 'Message was not sent')
+                
+        context = {'form': form}
+        return render(request, 'pages/contact.html', context)
