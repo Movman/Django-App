@@ -1,5 +1,5 @@
 from django.core.mail import send_mail
-from django.http import HttpResponse, request
+from django.http import HttpResponse, HttpResponseRedirect, request
 from django.shortcuts import redirect, render
 from django.views.generic.edit import FormView
 from wagtail.core.models import Page
@@ -32,20 +32,14 @@ class ContactFormView(FormView):
     template_name = 'pages/contact.html'
     form_class = ContactForm
     success_url = '/contact/'
-
-    # def form_valid(self, form):
-    #     # This method is called when valid form data has been POSTed.
-    #     # It should return an HttpResponse.
-    #     return super().form_valid(form)
     
-    def post(self, request):
-        if request.method == 'POST':
-            form = ContactForm(request.POST)
+    def form_valid(self, form):
 
-            if form.is_valid():
-                messages.success(request, 'Message successfuly sent!')
-            else:
-                messages.error(request, 'Message was not sent')
-                
-        context = {'form': form}
-        return render(request, 'pages/contact.html', context)
+        print(self.request.POST['name'])
+
+        if form.is_valid():
+            messages.success(self.request, "Message has been sent!")
+        else:
+            messages.error(self.request, "Error")
+
+        return HttpResponseRedirect(self.get_success_url())
