@@ -6,6 +6,7 @@ from wagtail.core.models import Page
 from wagtail.search.models import Query
 from django.contrib import messages
 
+from .models import Contact
 from .forms import ContactForm
 
 # Create your views here.
