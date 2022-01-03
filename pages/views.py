@@ -34,12 +34,11 @@ class ContactFormView(FormView):
     success_url = '/contact/'
     
     def form_valid(self, form):
+        name = form.cleaned_data['name']
+        email = form.cleaned_data['email']
+        message = form.cleaned_data['message']
+        messages.success(self.request, "Message successfully sent")
 
-        print(self.request.POST['name'])
+        Contact.objects.create(name=name, email=email, message=message)
 
-        if form.is_valid():
-            messages.success(self.request, "Message has been sent!")
-        else:
-            messages.error(self.request, "Error")
-
-        return HttpResponseRedirect(self.get_success_url())
+        return super().form_valid(form)
