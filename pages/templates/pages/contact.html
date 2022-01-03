@@ -16,13 +16,17 @@
         </div>
         <!-- Contact Section Form-->
         <div class="row justify-content-center">
-            {% include 'pages/messages.html '%}
             <div class="col-lg-8 col-xl-7">
-                <form action="" method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Send">
+                <form action="" id="contactForm" method="post">
+                    <div class="form-floating mb-3">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" class="btn btn-primary btn-xl" id="submitButton" value="Send">
+                    </div>
                 </form>
+                {% include 'pages/messages.html '%}
+            </div>
+        </div>
                 <!-- * * * * * * * * * * * * * * *-->
                 <!-- * * SB Forms Contact Form * *-->
                 <!-- * * * * * * * * * * * * * * *-->
