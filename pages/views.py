@@ -35,11 +35,12 @@ class ContactFormView(FormView):
     success_url = '/contact/'
     
     def form_valid(self, form):
-        name = form.cleaned_data['name']
-        email = form.cleaned_data['email']
-        message = form.cleaned_data['message']
-        messages.success(self.request, "Message successfully sent")
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            messages.success(self.request, "Message successfully sent")
 
-        Contact.objects.create(name=name, email=email, message=message)
+            Contact.objects.create(name=name, email=email, message=message)
 
         return super().form_valid(form)
