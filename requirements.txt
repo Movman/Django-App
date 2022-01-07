@@ -1,6 +1,7 @@
 Django==3.2.9
 djangorestframework==3.12.4
 django-extensions==3.1.5
+django-allauth==0.47.0
 
 # wagtail
 wagtail==2.15.1
