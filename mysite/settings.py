@@ -180,3 +180,10 @@ WAGTAILSEARCH_BACKENDS = {
         'BACKEND': 'wagtail.search.backends.database',
     }
 }
+
+# Allauth
+LOGIN_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_REDIRECT_URL ="/accounts/login"
+ACCOUNT_LOGOUT_ON_GET= True
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
