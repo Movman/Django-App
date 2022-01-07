@@ -74,3 +74,6 @@ class AuthorProfile(models.Model):
 
     def __str__(self):
         return self.name
+
+class CustomUser(AbstractUser):
+    user = models.OneToOneField(AuthorProfile, on_delete=models.CASCADE)
