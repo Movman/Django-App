@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pages.apps.PagesConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,6 +52,7 @@ INSTALLED_APPS = [
     'django_extensions',
 
     'wagtail.contrib.forms',
+    'wagtail.contrib.modeladmin',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
     'wagtail.sites',
@@ -64,7 +67,6 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
-    'pages.apps.PagesConfig'
 ]
 
 SITE_ID = 1
@@ -139,6 +141,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Custom user model
+# AUTH_USER_MODEL = 'pages.CustomUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -176,4 +180,3 @@ WAGTAILSEARCH_BACKENDS = {
         'BACKEND': 'wagtail.search.backends.database',
     }
 }
-
