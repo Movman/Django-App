@@ -32,6 +32,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # custom apps
+    'pages.apps.PagesConfig',
+    'polls.apps.PollsConfig',
+    'users.apps.UsersConfig',
+    
     # django
     'django.contrib.admin',
     'django.contrib.auth',
@@ -62,11 +67,6 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
-
-    # custom apps
-    'pages.apps.PagesConfig',
-    'polls.apps.PollsConfig',
-    'users.apps.UsersConfig',
 
 ]
 
@@ -184,7 +184,7 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Allauth
 LOGIN_REDIRECT_URL = '/'
-ACCOUNT_LOGOUT_REDIRECT_URL ="/accounts/login"
-ACCOUNT_LOGOUT_ON_GET= True
+ACCOUNT_LOGOUT_REDIRECT_URL ="/accounts/login/"
+# ACCOUNT_LOGOUT_ON_GET= True
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
