@@ -32,8 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'pages.apps.PagesConfig',
-
+    # django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,15 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    #3rd party
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
-    'polls.apps.PollsConfig',
-
     'rest_framework',
     'django_extensions',
-
     'wagtail.contrib.forms',
     'wagtail.contrib.modeladmin',
     'wagtail.contrib.redirects',
@@ -66,6 +62,11 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
+
+    # custom apps
+    'pages.apps.PagesConfig',
+    'polls.apps.PollsConfig',
+    'users.apps.UsersConfig',
 
 ]
 
@@ -142,7 +143,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Custom user model
-AUTH_USER_MODEL = 'pages.CustomUser'
+AUTH_USER_MODEL = 'users.CustomUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
