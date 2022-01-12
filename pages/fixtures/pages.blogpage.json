@@ -3,8 +3,9 @@
   "model": "pages.blogpage",
   "pk": 4,
   "fields": {
+    "page_ptr": 4,
     "main_image": 1,
-    "text": "[{\"type\": \"heading\", \"value\": \"This is heading for blog 1 page\", \"id\": \"e6e0aa08-a6f7-4fb5-8a43-b387cde4924f\"}]"
+    "text": "[{\"type\": \"heading\", \"value\": \"Heading\", \"id\": \"6925c732-36d1-4416-89a7-cc3f88dd0525\"}]"
   }
 }
 ]

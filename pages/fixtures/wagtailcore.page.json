@@ -6,12 +6,15 @@
     "path": "0001",
     "depth": 1,
     "numchild": 1,
-    "translation_key": "ffc9a831-8a5d-45de-a2fb-e72150d6c90c",
+    "translation_key": "babede07-51ec-4737-8487-3a7687189be2",
     "locale": 1,
     "title": "Root",
     "draft_title": "Root",
     "slug": "root",
-    "content_type": 1,
+    "content_type": [
+      "wagtailcore",
+      "page"
+    ],
     "live": true,
     "has_unpublished_changes": false,
     "url_path": "/",
@@ -39,16 +42,21 @@
     "path": "00010001",
     "depth": 2,
     "numchild": 1,
-    "translation_key": "282a72eb-389e-499c-9da4-871c9c8485d9",
+    "translation_key": "a5c155e9-e085-4b1c-ac19-0f4754bc4eae",
     "locale": 1,
     "title": "Index page",
     "draft_title": "Index page",
     "slug": "index-page",
-    "content_type": 50,
+    "content_type": [
+      "pages",
+      "indexpage"
+    ],
     "live": true,
     "has_unpublished_changes": false,
     "url_path": "/index-page/",
-    "owner": 1,
+    "owner": [
+      "admin"
+    ],
     "seo_title": "",
     "show_in_menus": false,
     "search_description": "",
@@ -58,9 +66,9 @@
     "locked": false,
     "locked_at": null,
     "locked_by": null,
-    "first_published_at": "2022-01-11T15:14:06.630Z",
-    "last_published_at": "2022-01-11T15:14:06.630Z",
-    "latest_revision_created_at": "2022-01-11T15:14:06.570Z",
+    "first_published_at": "2022-01-12T11:03:20.953Z",
+    "last_published_at": "2022-01-12T11:03:20.953Z",
+    "latest_revision_created_at": "2022-01-12T11:03:20.901Z",
     "live_revision": null,
     "alias_of": null
   }
@@ -72,16 +80,21 @@
     "path": "000100010001",
     "depth": 3,
     "numchild": 0,
-    "translation_key": "e3288e87-5e2b-4de1-a1ca-b871bc885b3a",
+    "translation_key": "b1ad1cb4-5501-4b61-8c64-2dc29f3c0bb2",
     "locale": 1,
     "title": "Blog 1",
     "draft_title": "Blog 1",
     "slug": "blog-1",
-    "content_type": 51,
+    "content_type": [
+      "pages",
+      "blogpage"
+    ],
     "live": true,
     "has_unpublished_changes": false,
     "url_path": "/index-page/blog-1/",
-    "owner": 1,
+    "owner": [
+      "admin"
+    ],
     "seo_title": "",
     "show_in_menus": false,
     "search_description": "",
@@ -91,9 +104,9 @@
     "locked": false,
     "locked_at": null,
     "locked_by": null,
-    "first_published_at": "2022-01-11T15:15:34.443Z",
-    "last_published_at": "2022-01-11T15:15:34.443Z",
-    "latest_revision_created_at": "2022-01-11T15:15:34.380Z",
+    "first_published_at": "2022-01-12T11:08:18.170Z",
+    "last_published_at": "2022-01-12T11:08:18.170Z",
+    "latest_revision_created_at": "2022-01-12T11:08:18.132Z",
     "live_revision": null,
     "alias_of": null
   }
