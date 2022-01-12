@@ -10,6 +10,6 @@ class AuthorProfileAdmin(ModelAdmin):
     exclude_from_explorer = False
     list_display = ("name", "bio",)
     list_filter = ('name',)
-    search_fields = ("name")
+    search_fields = ("name",)
 
 modeladmin_register(AuthorProfileAdmin)
