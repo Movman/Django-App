@@ -3,7 +3,7 @@ from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
 
 class AuthorProfileAdmin(ModelAdmin):
     model = AuthorProfile
-    menu_label = "Author"
+    menu_label = "Authors"
     menu_icon = "placeholder"
     menu_order = 200
     add_to_settings_menu = False
