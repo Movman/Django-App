@@ -9,9 +9,7 @@
     "width": 400,
     "height": 200,
     "created_at": "2022-01-12T11:08:10.429Z",
-    "uploaded_by_user": [
-      "admin"
-    ],
+    "uploaded_by_user": null,
     "focal_point_x": null,
     "focal_point_y": null,
     "focal_point_width": null,
@@ -21,3 +19,4 @@
   }
 }
 ]
+

@@ -37,7 +37,7 @@
 },
 {
   "model": "wagtailcore.page",
-  "pk": 3,
+  "pk": 2,
   "fields": {
     "path": "00010001",
     "depth": 2,
@@ -54,9 +54,7 @@
     "live": true,
     "has_unpublished_changes": false,
     "url_path": "/index-page/",
-    "owner": [
-      "admin"
-    ],
+    "owner": null,
     "seo_title": "",
     "show_in_menus": false,
     "search_description": "",
@@ -75,7 +73,7 @@
 },
 {
   "model": "wagtailcore.page",
-  "pk": 4,
+  "pk": 3,
   "fields": {
     "path": "000100010001",
     "depth": 3,
@@ -92,9 +90,7 @@
     "live": true,
     "has_unpublished_changes": false,
     "url_path": "/index-page/blog-1/",
-    "owner": [
-      "admin"
-    ],
+    "owner": null,
     "seo_title": "",
     "show_in_menus": false,
     "search_description": "",
@@ -112,3 +108,4 @@
   }
 }
 ]
+
