@@ -188,3 +188,8 @@ ACCOUNT_LOGOUT_REDIRECT_URL ="/accounts/login/"
 # ACCOUNT_LOGOUT_ON_GET= True
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
+
+# Wagtail user
+WAGTAIL_USER_EDIT_FORM = 'users.forms.CustomUserEditForm'
+WAGTAIL_USER_CREATION_FORM = 'users.forms.CustomUserCreationForm'
+WAGTAIL_USER_CUSTOM_FIELDS = ['profile']
