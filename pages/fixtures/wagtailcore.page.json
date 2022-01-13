@@ -75,7 +75,7 @@
   "model": "wagtailcore.page",
   "pk": 3,
   "fields": {
-    "path": "00010002",
+    "path": "000100010001",
     "depth": 3,
     "numchild": 0,
     "translation_key": "b1ad1cb4-5501-4b61-8c64-2dc29f3c0bb2",
