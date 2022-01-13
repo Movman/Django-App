@@ -1,9 +1,9 @@
 [
 {
   "model": "pages.blogpage",
-  "pk": 4,
+  "pk": 3,
   "fields": {
-    "page_ptr": 4,
+    "page_ptr": 2,
     "main_image": 1,
     "text": "[{\"type\": \"heading\", \"value\": \"Heading\", \"id\": \"6925c732-36d1-4416-89a7-cc3f88dd0525\"}]"
   }
