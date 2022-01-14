@@ -41,6 +41,7 @@ class BlogPage(Page):
     content_panels = Page.content_panels + [
         ImageChooserPanel('main_image'),
         StreamFieldPanel('text'),
+        FieldPanel('owner'),
     ]
 
     search_fields = Page.search_fields + [
