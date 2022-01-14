@@ -28,8 +28,10 @@
     <div class="container">
         <div class="col-md-6 col-lg-4 mb-5">
             <div class="portfolio-item mx-auto">
-                <h3>Author: {{ page.owner }}</h3>
-                <p> {{ page.last_published_at }} </p>
+                <h4>Author: </h4>
+                <p class="lead"> {{ page.owner.profile.name }}</p>
+                {% image page.owner.profile.photo fill-100x100 %}
+                <p>Published: <b>{{ page.last_published_at }}</b></p>
                 <p class="masthead-subheading font-weight-light mb-0">{{ page.text }}</p>
             </div>
         </div>
