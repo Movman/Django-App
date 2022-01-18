@@ -28,5 +28,3 @@ class AuthorProfile(models.Model):
 
 class CustomUser(AbstractUser):
     profile = models.OneToOneField(AuthorProfile, on_delete=models.CASCADE, null=True)
-    question = models.OneToOneField(Question, on_delete=models.CASCADE, null=True)
-    choice = models.OneToOneField(Choice, on_delete=models.CASCADE, null=True)
