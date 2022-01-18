@@ -3,7 +3,8 @@ from django.contrib.auth.models import AbstractUser
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
-# Create your models here.
+from polls.models import Question, Choice
+
 
 class AuthorProfile(models.Model):
     name = models.CharField(max_length=100)
@@ -27,3 +28,5 @@ class AuthorProfile(models.Model):
 
 class CustomUser(AbstractUser):
     profile = models.OneToOneField(AuthorProfile, on_delete=models.CASCADE, null=True)
+    question = models.OneToOneField(Question, on_delete=models.CASCADE, null=True)
+    choice = models.OneToOneField(Choice, on_delete=models.CASCADE, null=True)
