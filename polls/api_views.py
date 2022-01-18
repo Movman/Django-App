@@ -25,7 +25,7 @@ def voteView(request, pk):
 
     # zoberiem z request ID odpovede, najdem ju a "zahlasujem" -> votes + 1
     try:
-        selected_choice = question.choices.get(pk=request.POST['choice'])
+        selected_choice = question.choices.get(pk=request.data['choice'])
         selected_choice.votes += 1
         selected_choice.save()
     except (Choice.DoesNotExist): 
