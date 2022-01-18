@@ -35,17 +35,4 @@ class PollsAdmin(ModelAdmin):
     list_filter = ('question_text',)
     search_fields = ("question_text",)
 
-class ChoiceAdmin(ModelAdmin):
-    model = Choice
-    menu_label = "Choices"
-    menu_icon = "placeholder"
-    menu_order = 350
-    add_to_settings_menu = False
-    exclude_from_explorer = False
-    list_display = ("question", "choice_text", "votes",)
-    list_filter = ('question',)
-    search_fields = ("question", "choice_text",)
-
-
 modeladmin_register(PollsAdmin)
-modeladmin_register(ChoiceAdmin)
