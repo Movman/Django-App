@@ -192,4 +192,4 @@ LOGOUT_URL = '/logout/'
 # Wagtail user
 WAGTAIL_USER_EDIT_FORM = 'users.forms.CustomUserEditForm'
 WAGTAIL_USER_CREATION_FORM = 'users.forms.CustomUserCreationForm'
-WAGTAIL_USER_CUSTOM_FIELDS = ['profile']
+WAGTAIL_USER_CUSTOM_FIELDS = ['profile', 'question', 'choice']
