@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from wagtail.search import index
 
-
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
@@ -11,6 +11,9 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page
 
 from wagtail.images.blocks import ImageChooserBlock
+
+from polls.models import Question
+from polls import blocks_polls
 
 # Create your models here.
 
@@ -30,11 +33,16 @@ class BlogPage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
+
+    poll = models.ForeignKey(Question, on_delete=models.SET_NULL, null=True, related_name='+')
+
     text = StreamField([
         ('heading', blocks.CharBlock(form_classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
+        ('polls', blocks_polls.PollsBlock()),
     ], default=None)
+
 
     # Editor panels configuration
 
@@ -42,6 +50,7 @@ class BlogPage(Page):
         ImageChooserPanel('main_image'),
         StreamFieldPanel('text'),
         FieldPanel('owner'),
+        SnippetChooserPanel('poll')
     ]
 
     search_fields = Page.search_fields + [
