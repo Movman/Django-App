@@ -27,7 +27,7 @@ admin.site.register(Question, QuestionAdmin)
 class PollsAdmin(ModelAdmin):
     model = Question
     menu_label = "Polls"
-    menu_icon = "placeholder"
+    menu_icon = "plus"
     menu_order = 300
     add_to_settings_menu = False
     exclude_from_explorer = False
