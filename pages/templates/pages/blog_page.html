@@ -24,6 +24,7 @@
 
 
 {% block content %}
+
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
         <div class="col-md-6 col-lg-4 mb-5">
@@ -32,12 +33,14 @@
                 <p class="lead"> {{ page.owner.profile.name }}</p>
                 {% image page.owner.profile.photo fill-100x100 %}
                 <p>Published: <b>{{ page.last_published_at }}</b></p>
-                <p class="masthead-subheading font-weight-light mb-0">{{ page.text }}</p>
+                {% for block in page.text %}
+                    {% if block.block_type == 'polls' %}
+                        <p class="masthead-subheading font-weight-light mb-0">{{ block.value.question }}</p>
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
 </section>
-
-
 
 {% endblock content %}
