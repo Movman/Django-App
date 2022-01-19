@@ -34,9 +34,12 @@
                 {% image page.owner.profile.photo fill-100x100 %}
                 <p>Published: <b>{{ page.last_published_at }}</b></p>
                 {% for block in page.text %}
-                    {% if block.block_type == 'polls' %}
-                        <p class="masthead-subheading font-weight-light mb-0">{{ block.value.question }}</p>
+                    <!-- ak chcem specificky vyrenderovat mozem kukat na typ blocku -->
+                    {% if block.block_type == 'poll' %}
+                        <p class="masthead-subheading font-weight-light mb-0">{{ block.value.poll }}</p>
                     {% endif %}
+                    <!-- alebo ho tam proste len placnem a kazdy block ma svoju sablonu -->
+                    {{block}}
                 {% endfor %}
             </div>
         </div>

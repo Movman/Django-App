@@ -1,9 +1,12 @@
+
 from wagtail.core import blocks
+from wagtail.snippets.blocks import SnippetChooserBlock
+from .models import Question
 
 class PollsBlock(blocks.StructBlock):
-    question = blocks.CharBlock(required=True)
-
+    # v blocku si vyberame s questions...pozivame SnippetChooserBlock (nie Panel)
+    poll = SnippetChooserBlock(Question)
     class Meta:
-        template = 'pages/blog_page.html'
+        template = 'polls/snippets/poll_snippet.html'
         icon = 'edit'
-        label = 'Polls'
+        label = 'Poll'

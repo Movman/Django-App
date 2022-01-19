@@ -34,29 +34,26 @@ class BlogPage(Page):
         related_name='+'
     )
 
-    poll = models.ForeignKey(Question, on_delete=models.SET_NULL, null=True, related_name='+')
-
+    # pouzivame blocky, nie panels
+    # stream field je list tupples: ('nazov_objektu', Block)
     text = StreamField([
         ('heading', blocks.CharBlock(form_classname="full title")),
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
-        ('polls', blocks_polls.PollsBlock()),
+        ('poll', blocks_polls.PollsBlock()),
     ], default=None)
 
 
-    # Editor panels configuration
-
+    # Editor panels configuration - tu pouzivame panels
     content_panels = Page.content_panels + [
         ImageChooserPanel('main_image'),
         StreamFieldPanel('text'),
         FieldPanel('owner'),
-        SnippetChooserPanel('poll')
     ]
 
     search_fields = Page.search_fields + [
         index.SearchField('title'),
 ]
-
 
 
 class Contact(models.Model):
