@@ -29,8 +29,7 @@
     <div class="container">
         {% comment %} <div class="col-md-6 col-lg-4 mb-5"> {% endcomment %}
             <div class="portfolio-item mx-auto, text-center">
-                <h4>Author:</h4>
-                <p class="lead"> {{ page.owner.profile.name }}</p>
+                <p class="lead"><b>Author: </b>{{ page.owner.profile.name }}</p>
                 {% image page.owner.profile.photo fill-100x100 class="author-photo" %}
                 <p>Published: <b>{{ page.last_published_at }}</b></p>
                 {% for block in page.text %}

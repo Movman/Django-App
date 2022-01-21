@@ -22,6 +22,10 @@
     margin-bottom: -5rem;
 }
 
+.lead b {
+    font-weight: 900;
+}
+
 .author-photo {
     border: 1px solid rgb(198, 198, 198);
     border-radius: 50%;
@@ -34,4 +38,12 @@
     font-style: italic;
     margin: 3rem 15rem 0 15rem;
     padding: 1rem 1rem;
+}
+
+.poll-section h5 {
+    font-style: normal;
+}
+
+.poll-section ul {
+    list-style: none;
 }
