@@ -3,9 +3,9 @@
     <h5>Hlasuj!</h5>
     {{ value.poll }}
 
-    <ul>
-        <li><button class="btn btn-primary" type="submit">Choice 1</button></li>
-        <li><button class="btn btn-primary" type="submit">Choice 2</button></li>
-        <li><button class="btn btn-primary" type="submit">Choice 3</button></li>
-    </ul>
+    {% for choice in value.poll.choices.all %}
+        <ul>
+            <li><button class="btn btn-primary" type="submit">{{ choice.choice_text }}</button></li>
+        </ul>
+    {% endfor %}
 </div>
