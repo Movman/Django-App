@@ -2,6 +2,16 @@
     margin-top: 2.5rem;
 }
 
+.portfolio .portfolio-item {
+    cursor: inherit;
+    margin: auto;
+    max-width: 55rem;
+}
+
+.col-lg-4 {
+    margin: auto;
+}
+
 .col-xl-7 {
     margin-top: 6rem;
     margin-bottom: 3rem;
@@ -10,4 +20,18 @@
 .mb-3 {
     margin-top: -3rem;
     margin-bottom: -5rem;
+}
+
+.author-photo {
+    border: 1px solid rgb(198, 198, 198);
+    border-radius: 50%;
+}
+
+.poll-section {
+    background-color: rgb(245, 245, 255);
+    border: 2px solid rgb(224, 233, 236);
+    border-radius: 25px;
+    font-style: italic;
+    margin: 3rem 15rem 0 15rem;
+    padding: 1rem 1rem;
 }

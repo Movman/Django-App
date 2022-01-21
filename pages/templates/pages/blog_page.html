@@ -27,22 +27,17 @@
 
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
-        <div class="col-md-6 col-lg-4 mb-5">
-            <div class="portfolio-item mx-auto">
-                <h4>Author: </h4>
+        {% comment %} <div class="col-md-6 col-lg-4 mb-5"> {% endcomment %}
+            <div class="portfolio-item mx-auto, text-center">
+                <h4>Author:</h4>
                 <p class="lead"> {{ page.owner.profile.name }}</p>
-                {% image page.owner.profile.photo fill-100x100 %}
+                {% image page.owner.profile.photo fill-100x100 class="author-photo" %}
                 <p>Published: <b>{{ page.last_published_at }}</b></p>
                 {% for block in page.text %}
-                    <!-- ak chcem specificky vyrenderovat mozem kukat na typ blocku -->
-                    {% if block.block_type == 'poll' %}
-                        <p class="masthead-subheading font-weight-light mb-0">{{ block.value.poll }}</p>
-                    {% endif %}
-                    <!-- alebo ho tam proste len placnem a kazdy block ma svoju sablonu -->
-                    {{block}}
+                    {{ block }}
                 {% endfor %}
             </div>
-        </div>
+        {% comment %} </div> {% endcomment %}
     </div>
 </section>
 
