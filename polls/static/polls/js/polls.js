@@ -41,9 +41,6 @@ $(".vote-button").on("click", function () {
     url: url,
     data: paylaod,
     success: onPollPostSuccess,
-    dataType: "json",
-    headers: {
-        "Cookie": ""
-    }
+    dataType: "json"
   });
 });
