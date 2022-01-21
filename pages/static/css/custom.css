@@ -45,5 +45,10 @@
 }
 
 .poll-section ul {
+    padding: 0;
     list-style: none;
+}
+
+.btn-primary {
+    margin: 0.15rem;
 }
