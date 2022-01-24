@@ -2,6 +2,10 @@
     margin-top: 2.5rem;
 }
 
+.row {
+    --bs-gutter-x: 3.5rem;
+}
+
 .portfolio .portfolio-item {
     cursor: inherit;
     margin: auto;
@@ -36,8 +40,13 @@
     border: 2px solid rgb(224, 233, 236);
     border-radius: 25px;
     font-style: italic;
-    margin: 3rem 15rem 0 15rem;
+    margin: 3rem 10rem 0 10rem;
     padding: 1rem 1rem;
+}
+
+.img-blog {
+    width: 100%;
+    height: auto;
 }
 
 .poll-section h5 {
