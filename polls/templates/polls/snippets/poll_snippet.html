@@ -1,11 +1,17 @@
-
-<div class="poll-section">
-    <h5>Hlasuj!</h5>
-    {{ value.poll }}
-
-    {% for choice in value.poll.choices.all %}
-        <ul>
-            <li><button class="btn btn-primary" type="submit">{{ choice.choice_text }}</button></li>
-        </ul>
-    {% endfor %}
+<div class="poll-section" data-poll="{{value.poll.id}}">
+  <h5>Hlasuj!</h5>
+  {{ value.poll }} {% for choice in value.poll.choices.all %}
+  <ul>
+    <li>
+      <button
+        class="btn btn-primary vote-button"
+        data-poll="{{ value.poll.id }}"
+        data-choice="{{ choice.id}}"
+        type="submit"
+      >
+        {{ choice.choice_text }}
+      </button>
+    </li>
+  </ul>
+  {% endfor %}
 </div>

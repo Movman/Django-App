@@ -2,6 +2,7 @@ from .serializers import PollsSerializer, PollsDetailSerializer, ChoiceSerialize
 from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework.decorators import api_view
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404
 
 from .models import Choice, Question
@@ -19,7 +20,9 @@ class PollsDetail(generics.RetrieveAPIView):
         serializer_class = PollsDetailSerializer
 
 
+
 @api_view(['POST'])
+@csrf_exempt
 def voteView(request, pk):
     question = get_object_or_404(Question, pk=pk)
 
