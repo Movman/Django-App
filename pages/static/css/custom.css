@@ -6,6 +6,14 @@
     --bs-gutter-x: 3.5rem;
 }
 
+.lead {
+    text-align: center;
+}
+
+.page-section .page-section-heading {
+    padding-top: 3rem;
+}
+
 .portfolio .portfolio-item {
     cursor: inherit;
     margin: auto;
@@ -31,6 +39,8 @@
 }
 
 .author-photo {
+    display: block;
+    margin: auto;
     border: 1px solid rgb(198, 198, 198);
     border-radius: 50%;
 }
@@ -46,7 +56,7 @@
 
 .img-main {
     position: relative;
-    top: -74px;
+    top: -96px;
     width: 118%;
 }
 
@@ -66,4 +76,12 @@
 
 .btn-primary {
     margin: 0.15rem;
+}
+
+.form-group {
+    color: red;
+}
+
+.search-result-list {
+    list-style: none;
 }
