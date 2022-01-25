@@ -29,13 +29,15 @@
 
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
-        <div class="portfolio-item mx-auto, text-center">
-            <p class="lead"><b>Author: </b>{{ page.owner.profile.name }}</p>
+        <div class="portfolio-item mx-auto">
+            <h6 class="lead"><b>Author: </b>{{ page.owner.profile.name }}</h6>
+            <h6 class="lead">Published: <b>{{ page.last_published_at }}</b></h6>
             {% image page.owner.profile.photo fill-100x100 class="author-photo" %}
-            <p>Published: <b>{{ page.last_published_at }}</b></p>
+
             {% for block in page.text %}
                 {{ block }}
             {% endfor %}
+            
         </div>
     </div>
 </section>
