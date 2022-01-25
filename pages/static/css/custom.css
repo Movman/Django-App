@@ -44,6 +44,12 @@
     padding: 1rem 1rem;
 }
 
+.img-main {
+    position: relative;
+    top: -74px;
+    width: 118%;
+}
+
 .img-blog {
     width: 100%;
     height: auto;

@@ -8,7 +8,9 @@
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Avatar Image-->
-            {% image page.main_image fill-1200x600 class="img-blog" %}
+            <div class="img-main">
+                {% image page.main_image fill-1200x600 class="img-blog" %}
+            </div>
             <!-- Masthead Heading-->
             <h1 class="masthead-heading text-uppercase mb-0">{{ page.title }}</h1>
             <!-- Icon Divider-->
@@ -27,16 +29,14 @@
 
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
-        {% comment %} <div class="col-md-6 col-lg-4 mb-5"> {% endcomment %}
-            <div class="portfolio-item mx-auto, text-center">
-                <p class="lead"><b>Author: </b>{{ page.owner.profile.name }}</p>
-                {% image page.owner.profile.photo fill-100x100 class="author-photo" %}
-                <p>Published: <b>{{ page.last_published_at }}</b></p>
-                {% for block in page.text %}
-                    {{ block }}
-                {% endfor %}
-            </div>
-        {% comment %} </div> {% endcomment %}
+        <div class="portfolio-item mx-auto, text-center">
+            <p class="lead"><b>Author: </b>{{ page.owner.profile.name }}</p>
+            {% image page.owner.profile.photo fill-100x100 class="author-photo" %}
+            <p>Published: <b>{{ page.last_published_at }}</b></p>
+            {% for block in page.text %}
+                {{ block }}
+            {% endfor %}
+        </div>
     </div>
 </section>
 
