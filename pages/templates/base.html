@@ -33,8 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <form action="{% url 'search' %}" method="get">
-                            <input type="text" class="form-control" name="query" value="{{ search_query }}">
-                            <input type="submit" class="btn btn-secondary" value="Search">
+                            <input type="text" class="form-control" name="query" value="{{ search_query }}" placeholder="Search">
                         </form>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Home</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/contact/">Contact</a></li>
@@ -52,8 +51,6 @@
         {% block masthead %}
         {% endblock masthead %}
         <!-- Portfolio Section-->
-        <br>
-        <br>
         {% block content %}
         {% endblock content %}
         <!-- Footer-->
