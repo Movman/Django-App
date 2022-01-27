@@ -17,15 +17,11 @@ function onPollPostSuccess(votedPoll) {
     var voteButton = pollSection.find(
       '.vote-button[data-choice="' + choice.id + '"]'
     );
+    voteButton.attr("disabled", true);
+    voteButton.text(choice.choice_text + ": " + choice.votes);
     console.log(choice, voteButton);
-    
-    Cookies.set('Polls', 'true', { expires: 7, sameSite: 'none', Secure: true })
-    var pollsCookie = Cookies.get('Polls')
 
-    if(pollsCookie){
-      voteButton.attr("disabled", true);
-      voteButton.text(choice.choice_text + ": " + choice.votes);
-    }
+    Cookies.set('Polls', 'true', { expires: 7, sameSite: 'none', Secure: true })
   }
 }
 
@@ -50,3 +46,12 @@ $(".vote-button").on("click", function () {
     dataType: "json"
   });
 });
+
+var pollsCookie = Cookies.get('Polls')
+
+if(pollsCookie){
+  var element = document.getElementsByClassName('vote-button');
+  for (i = 0; i < element.length; i++){
+    element[i].disabled = true
+  }
+}
