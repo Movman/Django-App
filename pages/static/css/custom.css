@@ -16,7 +16,7 @@
 
 .portfolio .portfolio-item {
     cursor: inherit;
-    margin: auto;
+    margin: 1rem auto;
     max-width: 55rem;
 }
 
@@ -50,7 +50,7 @@
     border: 2px solid rgb(224, 233, 236);
     border-radius: 25px;
     font-style: italic;
-    margin: 3rem 10rem 0 10rem;
+    margin: 3rem 10rem 0 8rem;
     padding: 1rem 1rem;
 }
 

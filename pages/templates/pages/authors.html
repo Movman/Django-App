@@ -11,11 +11,11 @@
             <div class="portfolio-item mx-auto">
                 <h4>Authors:</h4>
                 {% for author in authors|dictsort:"name" %}
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <h6><a href="/">{{ author.name }}</a></h6> {{ author.bio }}
-                            </li>
-                        </ul>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <h6><a href="/">{{ author.name }}</a></h6> {{ author.bio }}
+                        </li>
+                    </ul>
                 {% endfor %}
             </div>
         </div>
