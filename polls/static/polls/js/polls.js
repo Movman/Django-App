@@ -18,8 +18,14 @@ function onPollPostSuccess(votedPoll) {
       '.vote-button[data-choice="' + choice.id + '"]'
     );
     console.log(choice, voteButton);
-    voteButton.attr("disabled", true);
-    voteButton.text(choice.choice_text + ": " + choice.votes);
+    
+    Cookies.set('Polls', 'true', { expires: 7, sameSite: 'none', Secure: true })
+    var pollsCookie = Cookies.get('Polls')
+
+    if(pollsCookie){
+      voteButton.attr("disabled", true);
+      voteButton.text(choice.choice_text + ": " + choice.votes);
+    }
   }
 }
 
