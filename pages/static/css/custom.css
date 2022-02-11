@@ -75,10 +75,10 @@
 }
 
 .btn-primary {
-    margin: 0.15rem;
+    margin-top: 0.5rem;
 }
 
-.form-group {
+.form-group.msg {
     color: red;
 }
 
